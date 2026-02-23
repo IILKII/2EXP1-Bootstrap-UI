@@ -1,27 +1,37 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
-  return (
-    <div
-      className="container-fluid vh-100 d-flex justify-content-center align-items-center"
-      style={{
-        background: "linear-gradient(135deg, #89f7fe, #66a6ff)"
-      }}
-    >
-      <div className="card shadow-lg p-4 rounded-4 bg-white" style={{ width: "400px" }}>
-        <h3 className="text-center mb-4">Bootstrap UI Demo</h3>
 
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Enter your name"
-          />
+  const cards = [
+    { id: 1, title: "Card 1", text: "This is card number one." },
+    { id: 2, title: "Card 2", text: "This is card number two." },
+    { id: 3, title: "Card 3", text: "This is card number three." }
+  ];
+
+  return (
+    <div className="futuristic-bg d-flex align-items-center justify-content-center">
+      <div className="container py-5">
+        <h2 className="text-center text-light mb-5 fw-bold">
+           Card Layout Demo
+        </h2>
+
+        <div className="row g-4">
+          {cards.map(card => (
+            <div className="col-md-4" key={card.id}>
+              <div className="card futuristic-card h-100 text-center p-4">
+                <div className="card-body">
+                  <h5 className="card-title">{card.title}</h5>
+                  <p className="card-text">{card.text}</p>
+                  <button className="btn futuristic-btn mt-3">
+                    View More
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <button className="btn btn-primary btn-lg w-100">
-          Submit
-        </button>
       </div>
     </div>
   );
